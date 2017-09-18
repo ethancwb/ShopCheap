@@ -1,0 +1,91 @@
+<!-- I'm the header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
+            <div class="pull-right header-button-container">
+                <a ng-click="model.goto()"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
+                <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
+                <a ng-show="model.loggedIn()" ng-click="model.logout()"><img src="static/resources/logout.png" class="logout-image"><img></a>
+            </div>
+            <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
+            <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
+            <i class="fa fa-search fa-search-change"></i>
+        </div>
+    </div>
+</nav>
+<div class="main-container">
+    <div class="content-container profile-page-inner-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="item-detail-container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="item-image-container">
+                                <img src="{{model.item.image}}" class="item-image"></img>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="item-description-container">
+                                <div class="item-core-info">
+                                    <div class="item-name-container">{{model.item.name}}<a>{{model.postby.username}}</a></div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="price-container">${{model.item.price}}</div>/each
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <select ng-model="model.count"class="form-control item-quantity" id="sell">
+                                              <option>1</option>
+                                              <option>2</option>
+                                              <option>3</option>
+                                              <option>4</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <h4>Number:{{model.item.count}}</h4>
+                                        </div>
+                                    </div>
+                                    <div class="item-text-description-container"><b>Description: </b>
+                                        {{model.item.description}}
+                                    </div>
+                                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                                    <div ng-click="model.addCart()"class="btn btn-warning btn-block">Add to Cart</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-compare-section">
+                    <div class="price-compare-text">This item also sell by:</div>
+                    <div ng-show="model.message" class="list-group-item">{{model.message}}</div>
+                    <div ng-repeat="product in model.items" ng-show="$index<3" class="list-group">
+                        <a href="{{product.viewItemURL[0]}}" class="list-group-item">
+                            <div class="student-info-container">
+                                <h4>ProductName:</h4> {{product.title[0]}}<br>
+                                <h4>Price:</h4> {{product.sellingStatus[0].currentPrice[0].__value__}}<br>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="price-compare-text">Want more prices? Check <a href="#!/cp/{{model.item._id}}">here</a> for a full price list!</div>
+                    <div class="comment-section-container">
+                        <span  class="price-compare-text">Customer Review:</span>
+                        <div class="comments-container list-group">
+                            <div ng-show="model.item.comments.length === 0" class="list-group-item">No review</div>
+                            <div ng-repeat="comment in model.item.comments"class="list-group-item">
+                                <p>{{comment}}</p>
+                            </div>
+                        </div>
+                        <div class="comment-input-container">
+                            <span class="price-compare-text">Leave a review:</span>
+                            <textarea ng-model="input"rows="5" class="form-control" placeholder="Input your review here"></textarea>
+                            <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                            <div class="button-hack">
+                                <div ng-click="model.reviewSubmit(input)"class="btn btn-warning btn-submit">Submit</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,247 @@
+.main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    align-items: center;
+}
+
+.homepage-main-container {
+    background-color: #eeeeee;
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.logout-image {
+    height: 35px;
+    width: 35px;
+}
+
+.content-container {
+    flex: 1;
+    font-size: 1em;
+    margin-top: 140px;
+}
+
+.home-logo {
+    width: 150px;
+}
+
+.homepage-container {
+    .col-sm-12, .col-md-6, .col-lg-4 {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+}
+
+.search-block {
+    position: absolute;
+    width: 45px;
+    height: 40px;
+    top: 75px;
+    background-color: #e2e211;
+}
+
+.slide-image {
+    width: 100%;
+    height: 30vh;
+}
+
+.profile-image {
+    height: 35px;
+    width: 30px;
+    margin-right: 5px;
+}
+
+.navbar {
+    height: 140px;
+    background-color: #232f3e;
+    border: none;
+}
+
+.header-button-container {
+    margin-top: 18px;
+}
+
+.shopping-cart-image {
+    height: 35px;
+    width: 35px;
+    margin-right: 5px;
+}
+
+.choices {
+    text-align: center;
+    margin-top: -20px;
+}
+
+.header-search {
+    margin-top: 10px;
+    width: 90vw;
+    height: 40px;
+    text-indent: 50px;
+}
+
+.fa-search-change {
+    color: black;
+    position: absolute;
+    top: 85px;
+    left: 28px;
+}
+
+.profile-text {
+    font-size: 1.5em;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.bar {
+
+}
+
+.cataglory-text {
+    height: 100%;
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: bold;
+    // padding: 15px 0 0 10px;
+    color: black;
+    background-color: rgba(255,255,255,0.6);
+    visibility: hidden;
+    text-align: center;
+    padding-top: calc(18vh / 2 - 0.75em);
+}
+
+.table-container {
+    display: block !important;
+    overflow: scroll;
+    width: 90vw;
+    margin-left: -20px;
+}
+
+.cataglory-container-home {
+    @include cataglory-generator('resources/home.png')
+}
+.cataglory-container-electronic {
+    @include cataglory-generator('resources/eletronic.png')
+}
+.cataglory-container-sport {
+    @include cataglory-generator('resources/sport.png')
+}
+.cataglory-container-media {
+    @include cataglory-generator('resources/media.png')
+}
+.cataglory-container-food {
+    @include cataglory-generator('resources/food.png')
+}
+.cataglory-container-others {
+    @include cataglory-generator('resources/others.png')
+}
+
+@media only screen and (min-width: $screen-sm) {
+    .cataglory-text {
+        font-size: 2em;
+        padding-top: calc(25vh / 2);
+    }
+    .header-search {
+        width: 95vw;
+    }
+    .slide-image {
+        height: 35vh;
+    }
+    .table-container {
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (min-width: $screen-lg) {
+    .navbar {
+        height: 160px;
+    }
+    .header-search {
+        height: 60px;
+        width: 98vw;
+        text-indent: 70px;
+    }
+    .search-block {
+        height: 60px;
+        width: 60px;
+    }
+    .fa-search {
+        top: 100px;
+        left: 40px;
+    }
+    .slide-image {
+        height: 45vh;
+    }
+    .cataglory-text {
+        font-size: 2.5em;
+        padding-top: calc(30vh / 2 - 1.25em);
+    }
+    .content-container {
+        margin-top: 160px;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .container {
+        width: 1150px;
+    }
+}
+// - - - - - -- - - - - - - - - - - - slide show
+.slideshow-container {
+  // max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}

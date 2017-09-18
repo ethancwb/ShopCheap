@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="OnlineWebStore">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0 user-scalable=no">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+        <link href="static/style.css" rel="stylesheet" />
+        <script src="template/javascript_library/jquery.min.js"></script>
+        <script src="template/javascript_library/angular.min.js"></script>
+        <script src="template/javascript_library/angular-route.min.js"></script>
+        <script src="app.js"></script>
+        <script src="config.js"></script>
+        <!-- User pages -->
+        <script src="template/controller/user_controller/homepage-controller.view.client.js"></script>
+        <script src="template/controller/user_controller/loginController.js"></script>
+        <script src="template/controller/user_controller/profileController.js"></script>
+        <script src="template/controller/user_controller/registerController.js"></script>
+        <script src="template/controller/user_controller/otherProfileController.js"></script>
+        <script src="template/controller/user_controller/cartController.js"></script>
+        <script src="template/controller/user_controller/userListController.js"></script>
+        <!-- admin pages-->
+        <script src="template/controller/admin_controller/adminCreateUserController.js"></script>
+        <script src="template/controller/admin_controller/adminCreateItemController.js"></script>
+        <script src="template/controller/admin_controller/adminEditItemController.js"></script>
+        <script src="template/controller/admin_controller/adminEditUserController.js"></script>
+        <script src="template/controller/admin_controller/adminHomepageController.js"></script>
+        <script src="template/controller/admin_controller/adminItemlistController.js"></script>
+        <script src="template/controller/admin_controller/adminLoginController.js"></script>
+        <script src="template/controller/admin_controller/adminOrderlistController.js"></script>
+        <script src="template/controller/admin_controller/adminUserlistController.js"></script>
+        <!--order pages-->
+        <script src="template/controller/order_controller/orderListController.js"></script>
+        <!--order pages-->
+        <script src="template/controller/item_controller/itemCompareController.js"></script>
+        <script src="template/controller/item_controller/itemCreateController.js"></script>
+        <script src="template/controller/item_controller/itemDetailController.js"></script>
+        <script src="template/controller/item_controller/itemEditController.js"></script>
+        <script src="template/controller/item_controller/itemListController.js"></script>
+
+        <script src="frontend-services/user.service.client.js"></script>
+        <script src="frontend-services/item.service.client.js"></script>
+        <script src="frontend-services/admin.service.client.js"></script>
+        <script src="frontend-services/order.service.client.js"></script>
+        <script src="frontend-services/paypal.service.client.js"></script>
+
+    </head>
+    <body>
+        <div ng-view></div>
+    </body>
+</html>

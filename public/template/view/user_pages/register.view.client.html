@@ -1,0 +1,49 @@
+<!-- I'm the header -->
+<<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
+            <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
+            <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
+            <i class="fa fa-search  fa-search-change"></i>
+        </div>
+    </div>
+</nav>
+
+<div class="main-container login-page-container">
+    <div class="content-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <img src="static/resources/logo-test.png" class="login-logo"></img>
+                <div class="form-group">
+                    <div ng-show="model.error" class="alert alert-danger">
+                        {{model.error}}
+                    </div>
+                    <label for="username">Username</label>
+                    <input ng-model = "username" type="text" class="form-control"  placeholder="username" />
+                    <label for="fname">First name</label>
+                    <input type="text" class="form-control" ng-model="fname" placeholder="first name" />
+                    <label for="lname">Last name</label>
+                    <input type="text" class="form-control" ng-model="lname" placeholder="last name" />
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" class="form-control" ng-model="dob" placeholder="01/01/1990" />
+                    <label for="password">Password</label>
+                    <input ng-model = "password"type="password" class="form-control"  placeholder="password" />
+                    <label for="repassword">Repeat Password</label>
+                    <input ng-model = "password2"type="password" class="form-control"  placeholder="password" />
+                    <label for="email">Email address</label>
+                    <input ng-model = "email"type="email" class="form-control"  placeholder="email" />
+                    <label for="phone">Phone number</label>
+                    <input ng-model = "phone"type="tel" class="form-control" placeholder="phone" />
+                    <label for="role">Type of User</label>
+                    <select ng-model ="role" class="form-control">
+                        <option value="BUYER" selected>Buyer</option>
+                        <option value="SELLER">Seller</option>
+                    </select>
+                    <a ng-click="model.register(username, fname, lname, password, password2, email, phone,dob, role)" class="btn btn-info btn-login btn-block">Register</a>
+                    <a href="#!/" class="btn btn-info btn-register btn-block">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

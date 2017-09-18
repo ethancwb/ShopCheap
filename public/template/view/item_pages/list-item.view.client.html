@@ -1,0 +1,62 @@
+<!-- I'm the header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
+            <div class="pull-right header-button-container">
+                <a ng-click="model.goto()"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
+                <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
+                <a ng-show="model.loggedIn()" ng-click="model.logout()"><img src="static/resources/logout.png" class="logout-image"><img></a>
+            </div>
+            <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
+            <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
+            <a ng-click="model.search(model.input)"><i class="fa fa-search fa-search-change"></i></a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+    <div class="content-container profile-page-inner-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="profile-container">
+                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                    <div class="bar">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="profile-text search-text">{{model.searchGroup}}</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8">
+                                <div class="search-field-container pull-right">
+                                    <div class="search-field-inner-wrapper search-padding">
+                                        <input class="search-box" placeholder="Search for ItemName" ng-model="model.findusername">
+                                        <button class="icon icon-modify" ng-click="model.findUser(model.findusername)">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="split-line">
+                    <ul ng-repeat = "item in model.list" class="list-group enhanced-group-list">
+                        <li class="list-group-item" ng-click="model.selectItem(item._id)">
+                            <div class="row">
+                                <div class="col-xs-5 col-sm-3 col-md-4 col-lg-3">
+                                    <img src="{{item.image}}" class="image-in-list"></img>
+                                </div>
+                                <div class="col-xs-7 col-sm-9 col-md-8 col-lg-9">
+                                    <div class="cart-text-container">
+                                        <div class="in-list-header">{{item.name}}</div>
+                                        <div class="in-list-description">Sell for: ${{item.price}}.00</div>
+                                        <div class="in-list-description">Description: {{item.description}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

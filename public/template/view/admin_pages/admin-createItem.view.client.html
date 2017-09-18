@@ -1,0 +1,49 @@
+<div class="admin-header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#!/admin"><div class="header-text">ShopCheap administration</div></a>
+                <div class="admin-header-option">
+                    Welcome {{model.admin.username}}/
+                    <a>view site</a>
+                    /
+                    <a href="#!/admin">logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="login-main-container container">
+    <div class="admin-home-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Create Item</h2>
+                <div class="form-group">
+                    <label for="itemName">Item name</label>
+                    <input type="text" class="form-control" ng-model="itemName" placeholder="Name" />
+                    <label for="price">Selling price</label>
+                    <input type="text" class="form-control" ng-model="price" placeholder="0.00" />
+                    <label for="desc">Item description</label>
+                    <input type="text" class="form-control" ng-model="desc" placeholder="description" />
+                    <label for="count">Quantity</label>
+                    <input type="text" class="form-control" ng-model="count" placeholder="1" />
+                    <label for="catagory">Catagory</label>
+                    <select ng-model ="catagory" class="form-control" placeholder="Home">
+                        <option value="HOME" selected>HOME</option>
+                        <option value="ELECTRONICS" selected>ELECTRONICS</option>
+                        <option value="MEDIA" selected>MEDIA</option>
+                        <option value="FOOD" selected>FOOD</option>
+                        <option value="SPORT" selected>SPORT</option>
+                        <option value="OTHER">OTHER</option>
+                    </select>
+                    <label for="count">Upload Image</label>
+                    <input type="upload" class="form-control" ng-model="image"/>
+                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                    <a ng-click="model.create(itemName,price,desc, count,catagory,image)" class="btn btn-info btn-login btn-block">Create</a>
+                    <a href="#!/admin/{{model.adminId}}" class="btn btn-info btn-register btn-block">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

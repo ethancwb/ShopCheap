@@ -1,0 +1,50 @@
+<div class="admin-header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#!/admin"><div class="header-text">ShopCheap administration</div></a>
+                <div class="admin-header-option">
+                    Welcome {{model.admin.username}}/
+                    <a>view site</a>
+                    /
+                    <a href="#!/admin">logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="login-main-container container">
+    <div class="admin-home-container">
+        <h2>Orders:</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>OrderId</th>
+                      <th>ItemId</th>
+                      <th>SellerId</th>
+                      <th>BuyerId</th>
+                      <th>Price</th>
+                      <th>Count</th>
+                      <th>Buy on</th>
+                      <th>Send On</th>
+                      <th>Delivery On</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="order in model.orders">
+                          <td>{{ order._id }}</td>
+                          <td>{{ order.itemId }}</td>
+                          <td>{{ order.sellerId }}</td>
+                          <td>{{ order.buyerId }}</td>
+                          <td>{{ order.price }}</td>
+                          <td>{{ order.count }}</td>
+                          <td>{{ order.createDate }}</td>
+                          <td>{{ order.sendDate }}</td>
+                          <td>{{ order.deliveryDate }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+    </div>
+</div>

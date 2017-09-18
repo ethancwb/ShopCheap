@@ -1,0 +1,119 @@
+<!-- I'm the header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
+            <div class="pull-right header-button-container">
+                <a href="#!/user/profile"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
+                <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
+                <a ng-click="model.logout()"><img src="static/resources/logout.png" class="shopping-cart-image"><img></a>
+            </div>
+            <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
+            <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
+            <i class="fa fa-search fa-search-change"></i>
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+    <div class="content-container profile-page-inner-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="profile-container">
+                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                    <div class="bar">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="profile-text">Profile</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8">
+                                <div class="search-field-container pull-right">
+                                    <div class="search-field-inner-wrapper">
+                                        <input class="search-box" placeholder="Search for username" ng-model="model.findusername">
+                                        <button class="icon icon-modify" ng-click="model.findUser(model.findusername)">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="split-line">
+                    <div class="form-group row">
+                        <label for="username" class="col-xs-12 col-sm-4">Username:</label>
+                        <div class="col-xs-11 col-sm-8"><input type="text" class="form-control" ng-model="model.user.username" placeholder="username" /></div>
+                        <label for="fname" class="col-xs-12 col-sm-4">First name:</label>
+                        <div class="col-xs-11 col-sm-8"><input type="text" class="form-control" ng-model="model.user.firstName" placeholder="firstname" /></div>
+                        <label for="lname" class="col-xs-12 col-sm-4">last name:</label>
+                        <div class="col-xs-11 col-sm-8"><input type="text" class="form-control" ng-model="model.user.lastName" placeholder="lastname" /></div>
+                        <label for="dob" class="col-xs-12 col-sm-4">Birth:</label>
+                        <div class="col-xs-11 col-sm-8"><input type="date" class="form-control" ng-model="model.user.dob" placeholder="1880-01-01" /></div>
+                        <label for="password" class="col-xs-12 col-sm-4">Password:</label>
+                        <div class="col-xs-11 col-sm-8"><input type="password" class="form-control" ng-model="model.user.password" placeholder="password" /></div>
+                        <label for="email" class="col-xs-12 col-sm-4">Email:</label>
+                        <div class="col-xs-11 col-sm-8"><input type="email" class="form-control" ng-model="model.user.email" placeholder="email" /></div>
+                        <label for="phone" class="col-xs-12 col-sm-4">Phone:</label>
+                        <div class="col-xs-11 col-sm-8"><input type="tel" class="form-control" ng-model="model.user.phone" placeholder="phone" /></div>
+                        <label for="role" class="col-xs-12 col-sm-4">Type:</label>
+                        <div class="col-xs-11 col-sm-8"><input type="text" class="form-control" ng-model="model.user.role" readonly/></div>
+                    </div>
+                </div>
+                <div class="function-split-bar">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <a ng-click="model.updateUser(model.user.username,model.user.firstName,model.user.lastName,model.user.dob,model.user.password,model.user.email,model.user.phone)">
+                                <img src="static/resources/check-icon.png" class="profile-icon">
+                            </a>
+                        </div>
+                        <div class="col-xs-3"><a href="#!"><img src="static/resources/home-icon.png" class="profile-icon"></img></a></div>
+                        <div class="col-xs-3"><a href="#!/s/ulist/followedBy"><img src="static/resources/followedBy-icon.png" class="profile-icon"></img></a></div>
+                        <div class="col-xs-3"><a href="#!/s/ulist/blackList"><img src="static/resources/blacklist-icon.png" class="profile-icon"></img></a></div>
+                    </div>
+                </div>
+                <!-- <div class="user-search-bar-container">
+                    <input class="user-search-bar" placeholder="Search for username" ng-model="model.findusername">
+                    <div ng-click="model.findUser(model.findusername)" class="btn btn-info btn-block btn-search">Search</div>
+                </div> -->
+                <div class="list-container">
+                    <div class="following-list-container">
+                        <ul class="list-group">
+                            <li class="list-group-item active">FollowList:</li>
+                            <li ng-show="model.followList.length === 0" class="list-group-item">You do not follow anybody!</li>
+                            <div ng-repeat="follower in model.followList" ng-click="model.userClick(follower)">
+                                <li class="list-group-item">{{follower.username}}</li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div  class="following-list-container">
+                        <ul class="list-group">
+                            <li class="list-group-item active">OrderList:</li>
+                            <li ng-show="model.orderList.length === 0" class="list-group-item">You do not have any order history!</li>
+                            <div ng-repeat="order in model.orderList">
+                                <a href="#!/user/olist">
+                                    <li class="list-group-item">
+                                        {{order.name}}
+                                    </li>
+                                </a>
+                            </div>
+                        </ul>
+                    </div>
+                    <div ng-show="model.user.role === 'SELLER'" class="following-list-container">
+                        <ul class="list-group">
+                            <li class="list-group-item active">
+                                ItemList:
+                                <a class="create-item pull-right" href="#!/user/i/create"><img src="static/resources/plus.png" class="plus-image"></a>
+                            </li>
+                            <li ng-show="model.itemList.length === 0" class="list-group-item">You do not post anything to sell!</li>
+                            <div ng-repeat="item in model.itemList">
+                                <li class="list-group-item" ng-click="model.itemClick(item)">
+                                    {{item.name}}
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn btn-danger btn-block profile-delete" ng-click="model.deleteUser()">Delete account</div>
+            </div>
+        </div>
+    </div>
+</div>

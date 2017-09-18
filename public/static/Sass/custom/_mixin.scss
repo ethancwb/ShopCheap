@@ -1,0 +1,41 @@
+@mixin cataglory-generator($url) {
+    height: 18vh;
+    width: 100%;
+    background-image: url($url);
+    background-size: cover;
+    background-position: center;
+
+    &:hover {
+        .cataglory-text {
+            visibility: visible;
+        }
+    }
+
+    @media only screen and (min-width: $screen-sm) {
+        height: 25vh;
+    }
+
+    @media only screen and (min-width: $screen-sm) {
+        height: 30vh;
+    }
+}
+
+@mixin button-maker($color) {
+    margin-top: 15px;
+    height: 45px;
+    padding-top: 10px;
+    background-color: $color;
+    border: none;
+
+    @media only screen and (min-width: $screen-sm) {
+        height: 60px;
+        padding-top: 15px;
+        font-size: 1.3em;
+    }
+
+    @media only screen and (min-width: $screen-md) {
+        height: 70px;
+        padding-top: 15px;
+        font-size: 1.5em;
+    }
+}

@@ -1,0 +1,51 @@
+<!-- I'm the header -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="static/resources/logo-3.png" class="home-logo"></img></a>
+            <div class="pull-right header-button-container">
+                <a href="#!/user/profile"><img src="static/resources/profile-image.png" class="profile-image"></img></a>
+                <a href="#!/user/cart"><img src="static/resources/cart.png" class="shopping-cart-image"><img></a>
+                <a ng-click="model.logout()"><img src="static/resources/logout.png" class="shopping-cart-image"><img></a>
+            </div>
+            <input ng-model="model.input" class="header-search" placeholder="Search by Name/Department" >
+            <a ng-click="model.search(model.input)"><div class="search-block"></div></a></input>
+            <i class="fa fa-search fa-search-change"></i>
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+    <div class="content-container profile-page-inner-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="profile-container">
+                    <div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+                    <div class="bar">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="profile-text">{{model.searchGroup}}</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-8">
+                                <div class="search-field-container pull-right">
+                                    <div class="search-field-inner-wrapper">
+                                        <input class="search-box" placeholder="Search for username" ng-model="model.findusername">
+                                        <button class="icon icon-modify" ng-click="model.findUser(model.findusername)">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <hr class="split-line">
+                <div class="following-list-container">
+                    <div ng-show="model.list.length === 0" class="alert alert-danger">You don't have {{model.searchGroup}}!</div>
+                    <ul ng-repeat="user in model.list" class="list-group">
+                       <li ng-click="model.chooseUser(user._id)" class="list-group-item">{{user.username}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
